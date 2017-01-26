@@ -8,6 +8,10 @@
 
 Execute a callback when a HTTP request closes, finishes, or errors.
 
+## Difference from jshttp/on-finished
+
+Invoke callbacks in LIFO order (similar to stack unwinding) instead of FIFO.
+
 ## Install
 
 ```sh
