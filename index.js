@@ -166,7 +166,7 @@ function createListener(msg) {
     listener.queue = null
 
     for (var i = 0; i < queue.length; i++) {
-      queue[i](err, msg)
+      queue[queue.length - i - 1](err, msg)
     }
   }
 
