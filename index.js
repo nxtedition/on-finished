@@ -45,13 +45,11 @@ var defer = typeof setImmediate === 'function'
 function onFinished(msg, listener) {
   if (isFinished(msg) !== false) {
     defer(listener, null, msg)
-    return msg
+    return function () {}
   }
 
   // attach the listener to the message
-  attachListener(msg, listener)
-
-  return msg
+  return attachListener(msg, listener)
 }
 
 /**
@@ -146,7 +144,17 @@ function attachListener(msg, listener) {
     attachFinishedListener(msg, attached)
   }
 
-  attached.queue.push(listener)
+  attached.queue.unshift(listener)
+  
+  return function () {
+    if (!attached.queue) {
+      return
+    }
+    var index = attached.queue.indexOf(listener)
+    if (index > -1) {
+       attached.queue.splice(index, 1)
+    }
+  }
 }
 
 /**
@@ -166,7 +174,7 @@ function createListener(msg) {
     listener.queue = null
 
     for (var i = 0; i < queue.length; i++) {
-      queue[queue.length - i - 1](err, msg)
+      queue[i](err, msg)
     }
   }
 
