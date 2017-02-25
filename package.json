@@ -1,5 +1,5 @@
 {
-  "name": "on-finished",
+  "name": "on-finished-lifo",
   "description": "Execute a callback when a request closes, finishes, or errors",
   "version": "2.3.0",
   "contributors": [
@@ -7,7 +7,7 @@
     "Jonathan Ong <me@jongleberry.com> (http://jongleberry.com)"
   ],
   "license": "MIT",
-  "repository": "jshttp/on-finished",
+  "repository": "nxtedition/on-finished-lifo",
   "dependencies": {
     "ee-first": "1.1.1"
   },
@@ -24,8 +24,6 @@
     "index.js"
   ],
   "scripts": {
-    "test": "mocha --reporter spec --bail --check-leaks test/",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
-    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
+    "test": "mocha --reporter spec --bail --check-leaks test/"
   }
 }
