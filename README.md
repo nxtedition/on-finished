@@ -1,4 +1,4 @@
-# on-finished
+# on-finished-lifo
 
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
@@ -16,13 +16,13 @@ Execute a callback when a HTTP request closes, finishes, or errors.
 ## Install
 
 ```sh
-$ npm install on-finished
+$ npm install on-finished-lifo
 ```
 
 ## API
 
 ```js
-var onFinished = require('on-finished')
+var onFinished = require('on-finished-lifo')
 ```
 
 ### onFinished(res, listener)
